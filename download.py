@@ -3,17 +3,15 @@
 
 # In this example: A Huggingface GPTJ model
 
-from transformers import GPTJForCausalLM, GPT2Tokenizer
+from transformers import GPTNeoForCausalLM, GPT2Tokenizer
 import torch
 
 
 def download_model():
     # do a dry run of loading the huggingface model, which will download weights
     print("downloading model...")
-    GPTJForCausalLM.from_pretrained(
+    GPTNeoForCausalLM.from_pretrained(
         "EleutherAI/gpt-neo-125M",
-        revision="float16",
-        torch_dtype=torch.float16,
         low_cpu_mem_usage=True,
     )
     print("done")
